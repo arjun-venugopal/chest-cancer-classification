@@ -89,6 +89,22 @@ def load_json(path: Path) -> ConfigBox:
     return ConfigBox(content)
 
 
+#@ensure_annotations
+#def save_model(path: Path, model: Any):
+#    """
+#    Saves a model using joblib.
+#
+#    Args:
+#        path (Path): The path to the file to be saved.
+#        model (Any): The model to be saved.
+#
+#    Returns:
+#        None
+#    """
+#    joblib.dump(value=model, filename=path)
+#    logger.info(f"Saved model at {path}")
+
+
 @ensure_annotations
 def save_bin(data: Any, path: Path): 
     """
