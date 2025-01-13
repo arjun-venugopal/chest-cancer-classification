@@ -9,33 +9,33 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+from typing import Union, List
 
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
-    """
-    Reads a YAML file and returns its contents as a ConfigBox object.
+    """reads yaml file and returns
 
     Args:
-        path_to_yaml (Path): The path to the YAML file to be read.
-
-    Returns:
-        ConfigBox: A ConfigBox object containing the contents of the YAML file.
+        path_to_yaml (str): path like input
 
     Raises:
-        BoxValueError: If there is an error reading the YAML file.
-    """
+        ValueError: if yaml file is empty
+        e: empty file
 
+    Returns:
+        ConfigBox: ConfigBox type
+    """
     try:
-        with open(path_to_yaml, 'r') as stream:
-            content = yaml.safe_load(stream)
-            logger.info(f"Read yaml file from {path_to_yaml}")
+        with open(path_to_yaml) as yaml_file:
+            content = yaml.safe_load(yaml_file)
+            logger.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
     except BoxValueError:
-        logger.error(f"Error reading yaml file from {path_to_yaml}")
-        raise BoxValueError
+        raise ValueError("yaml file is empty")
     except Exception as e:
-        return e
+        raise e
+
     
 
 @ensure_annotations
@@ -133,6 +133,7 @@ def get_size(path: Path) -> str:
     """
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
 
 
 def decodeImage(imgstring, fileName)-> str:
