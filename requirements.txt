@@ -5,7 +5,7 @@ dvc
 mlflow==2.19.0
 dagshub
 notebook
-numpy
+numpy<2
 matplotlib
 seaborn
 python-box

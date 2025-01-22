@@ -9,17 +9,11 @@ class ModelEvaluationPipeline:
         pass
 
     def main(self):
-        logger.info(f"----------> starting {STAGE_NAME}-------------->")
-        try:
-            config = ConfigurationManager()
-            model_eval_config = config.get_model_evaluation_config()
-            evaluation = Evaluation(config=model_eval_config)
-            evaluation.evaluation()
-            logger.info(f"----------> {STAGE_NAME} completed-------------->\n\n")
-        except Exception as e:
-            logger.error(f"----------> {STAGE_NAME} failed <------------")
-            logger.error(e)
-            raise e
+        config = ConfigurationManager()
+        eval_config = config.get_model_evaluation_config()
+        evaluation = Evaluation(eval_config)
+        evaluation.evaluation()
+        evaluation.log_into_mlflow()
 
 if __name__ == '__main__':
     try:

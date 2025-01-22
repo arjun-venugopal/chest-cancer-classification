@@ -3,10 +3,12 @@ from pathlib import Path
 import mlflow
 import mlflow.keras
 from urllib.parse import urlparse
+from chest_cancer.entity.config_entity import ModelEvaluationConfig
+from chest_cancer.utils.commen import save_json
+
 import dagshub
 dagshub.init(repo_owner='ajuarjun528', repo_name='chest-cancer-classification', mlflow=True)
-from chest_cancer.entity.config_entity import ModelEvaluationConfig
-from chest_cancer.utils.commen import read_yaml, create_directories,save_json
+
 
 class Evaluation:
     def __init__(self, config: ModelEvaluationConfig):
@@ -57,19 +59,17 @@ class Evaluation:
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_url)
         tracking_url = urlparse(mlflow.get_tracking_uri()).scheme
-        
+    
         with mlflow.start_run():
             mlflow.log_params(self.config.all_params)
-            mlflow.log_metrics(
-                {"loss": self.score[0], "accuracy": self.score[1]}
-            )
-            # Model registry does not work with file store
+            mlflow.log_metrics({"loss": self.score[0], "accuracy": self.score[1]})
+    
             if tracking_url != "file":
-
-                # Register the model
-                # There are other ways to use the Model Registry, which depends on the use case,
-                # please refer to the doc for more information:
-                # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
+                try:
+                    # Ensure valid model registry parameters
+                    mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
+                except Exception as e:
+                    print(f"Error registering model: {e}")
+                    raise e
             else:
                 mlflow.keras.log_model(self.model, "model")

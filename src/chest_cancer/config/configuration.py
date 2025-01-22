@@ -1,11 +1,12 @@
 import os
 from chest_cancer.constants import *
-from chest_cancer.utils.commen import read_yaml, create_directories 
+from chest_cancer.utils.commen import read_yaml, create_directories
 from chest_cancer.entity.config_entity import (DataIngestionConfig,
                                                 BaseModelConfig,
                                                 TrainingModelConfig,
                                                 ModelEvaluationConfig
                                                 )
+
 
 class ConfigurationManager:
     def __init__(
@@ -79,13 +80,13 @@ class ConfigurationManager:
 
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
 
-            model_evaluation_config = ModelEvaluationConfig(
-              model_path = "artifacts/model_training/model.keras",
-              trainig_data = "artifacts/data_ingestion/chest-cancer-ct",
-              mlflow_url=os.environ.get("MLFLOW_EXPERIMENT_URL", "default_url"),
-              all_params = self.params,
-              params_image_size = self.params.IMAGE_SIZE,
-              params_batch_size = self.params.BATCH_SIZE
-            )
+        model_evaluation_config = ModelEvaluationConfig(
+          model_path = "artifacts/model_training/model.keras",
+          trainig_data = "artifacts/data_ingestion/chest-cancer-ct",
+          mlflow_url = "https://dagshub.com/ajuarjun528/chest-cancer-classification.mlflow",
+          all_params = self.params,
+          params_image_size = self.params.IMAGE_SIZE,
+          params_batch_size = self.params.BATCH_SIZE
+        )
 
-            return model_evaluation_config
+        return model_evaluation_config

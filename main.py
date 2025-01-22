@@ -38,7 +38,7 @@ try:
     logger.info(f"----------> starting {STAGE_NAME}-------------->")
     Training_obj = ModelTrainingPipeline()
     Training_obj.main()
-    logger.info(f"----------> {STAGE_NAME} completed-------------->\n\n")
+    logger.info(f"----------> {STAGE_NAME} completed-------------->\n\n ============================================")
 except Exception as e:
     logger.error(f"----------> {STAGE_NAME} failed <------------")
     logger.error(e)
@@ -52,7 +52,7 @@ try:
     logger.info(f"----------> starting {STAGE_NAME}-------------->")
     evaluation_obj = ModelEvaluationPipeline()
     evaluation_obj.main()
-    logger.info(f"----------> {STAGE_NAME} completed-------------->\n\n")
+    logger.info(f"----------> {STAGE_NAME} completed-------------->\n\n ============================================")
 except Exception as e:
     logger.error(f"----------> {STAGE_NAME} failed <------------")
     logger.error(e)

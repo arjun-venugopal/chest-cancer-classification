@@ -37,7 +37,7 @@ class TrainingModelConfig:
 class ModelEvaluationConfig:
     model_path: Path
     trainig_data: Path
-    all_params:  dict
+    all_params: dict
     mlflow_url: str
     params_image_size: list
     params_batch_size: int
