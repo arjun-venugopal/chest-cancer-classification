@@ -11,3 +11,9 @@ model_selection:
   root_dir: artifacts/model_selection
   model_path: artifacts/model_selection/model.h5
   updated_model_path: artifacts/model_selection/updated_model.h5
+
+
+model_training:
+  root_dir: artifacts/model_training
+  trained_model_path: artifacts/model_training/model.keras
+

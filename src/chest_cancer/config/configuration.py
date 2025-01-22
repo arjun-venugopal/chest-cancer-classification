@@ -1,7 +1,11 @@
+import os
 from chest_cancer.constants import *
 from chest_cancer.utils.commen import read_yaml, create_directories 
 from chest_cancer.entity.config_entity import (DataIngestionConfig,
-                                                BaseModelConfig)
+                                                BaseModelConfig,
+                                                TrainingModelConfig,
+                                                ModelEvaluationConfig
+                                                )
 
 class ConfigurationManager:
     def __init__(
@@ -46,3 +50,42 @@ class ConfigurationManager:
         )
 
         return base_model_config
+    
+    def get_training_model_config(self) -> TrainingModelConfig:
+        training = self.config.model_training
+        base_model = self.config.model_selection
+        params = self.params
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "chest-cancer-ct")
+        
+
+        create_directories([
+            Path(training.root_dir)
+            ])
+
+        training_model_config = TrainingModelConfig(
+            root_dir = Path(training.root_dir),
+            trained_model_path = Path(training.trained_model_path),
+            updated_model_path = Path(base_model.updated_model_path),
+            training_data = Path(training_data),
+            params_epochs = params.EPOCHS,
+            params_learning_rate = params.LEARNING_RATE,
+            params_batch_size = params.BATCH_SIZE,
+            params_is_augmentation = params.AUGMENTATION,
+            params_image_size = params.IMAGE_SIZE
+        )
+
+        return training_model_config
+
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+
+            model_evaluation_config = ModelEvaluationConfig(
+              model_path = "artifacts/model_training/model.keras",
+              trainig_data = "artifacts/data_ingestion/chest-cancer-ct",
+              mlflow_url=os.environ.get("MLFLOW_EXPERIMENT_URL", "default_url"),
+              all_params = self.params,
+              params_image_size = self.params.IMAGE_SIZE,
+              params_batch_size = self.params.BATCH_SIZE
+            )
+
+            return model_evaluation_config
