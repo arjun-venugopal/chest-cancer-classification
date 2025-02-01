@@ -1,0 +1,79 @@
+[33mcommit 273e910a2c33daac0640d7a2f1e3d276324590f4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: arjun-venugopal <103921812+arjun-venugopal@users.noreply.github.com>
+Date:   Fri Jan 31 21:15:58 2025 +0530
+
+    Update params.yaml
+
+[33mcommit 9ca459f68622cfbf5bd0706fe13ab6b836271f8e[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Thu Jan 23 18:57:12 2025 +0530
+
+    Update README.md to enhance project documentation and provide installation, usage, and MLOps practices
+
+[33mcommit 4ab6ebdf7c273b8ca202c9e7439790ad74ab6354[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Thu Jan 23 18:41:53 2025 +0530
+
+    Add Streamlit app for chest cancer detection and update model training parameters
+
+[33mcommit 67e15db71477bd1bd4566b11e43046daee230213[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Thu Jan 23 12:16:53 2025 +0530
+
+    Add data pipeline stages for ingestion, preprocessing, training, and evaluation
+
+[33mcommit 633b67070dc5ca68991bbe5ef050464c8a25c2ea[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Thu Jan 23 12:15:35 2025 +0530
+
+    Add .gitignore and .dvcignore files to improve performance and manage ignored files
+
+[33mcommit dc47e5bfbe3cb11bdabc3cdabb57dc80ac9144b2[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Wed Jan 22 23:15:47 2025 +0530
+
+    Update configuration and evaluation logic; adjust requirements and parameters
+
+[33mcommit c34b9117362ce3b96ad9dd267304fca4b4a98753[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Wed Jan 22 19:59:22 2025 +0530
+
+    Add model training and evaluation stages with configuration updates
+
+[33mcommit a709a3a5ec7530488f9b5585324f02656b00dc11[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Mon Jan 13 16:06:24 2025 +0530
+
+    Add base model training pipeline and configuration updates
+
+[33mcommit c0dcb0c40074e558d65bf3d507adc5a03bae1d1f[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Mon Jan 13 13:07:03 2025 +0530
+
+    Implement data ingestion pipeline with configuration management and file handling
+
+[33mcommit 5e5653141f44b2c774297ee18bc008a0341d8cd2[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Sun Jan 12 18:11:43 2025 +0530
+
+    Add main functionality and dependencies for chest cancer detection project
+    
+    - Implement logging in the chest_cancer module
+    - Create utility functions for YAML and JSON file handling
+    - Add main script to log a greeting message
+    - Define project dependencies in requirements.txt
+    - Initialize Jupyter notebook for research trials
+    - Update .gitignore to exclude virtual environment
+    - Set up package configuration in setup.py
+
+[33mcommit e60b000d0b82c200bc6176bb0a2244f5fd109fee[m
+Author: arjun-venugopal <ajunarjun528@gmial.com>
+Date:   Sun Jan 12 15:33:56 2025 +0530
+
+    Add initial project structure and empty files
+
+[33mcommit f8b6c3a6b0df72c0ab99f6cfc4037d397f35a5ea[m
+Author: arjun-venugopal <103921812+arjun-venugopal@users.noreply.github.com>
+Date:   Sun Jan 12 15:11:28 2025 +0530
+
+    Initial commit

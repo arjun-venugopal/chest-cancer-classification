@@ -9,7 +9,7 @@ from PIL import Image as PILImage
 
 class PredictionPipeline:
     def __init__(self):
-        self.model_path = os.path.join("artifacts", "model_training", "model.keras")
+        self.model_path = os.path.join("model", "model.keras")
         self.model = None
         
     def run_training_pipeline(self) -> bool:
@@ -139,6 +139,7 @@ class PredictionPipeline:
         required_paths = [
             os.path.join("artifacts", "data_ingestion", "chest-cancer-ct"),
             os.path.join("artifacts", "model_selection"),
+            os.path.join("artifacts", "model_training", "model.keras"),
             self.model_path,
             "scores.json"
         ]
